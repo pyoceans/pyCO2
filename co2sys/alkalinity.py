@@ -8,14 +8,14 @@
 # e-mail:   ocefpaf@gmail
 # web:      http://ocefpaf.tiddlyspot.com/
 # created:  28-Jan-2012
-# modified: Sat 28 Jan 2012 07:37:12 PM EST
+# modified: Mon 02 Jun 2014 09:19:00 PM BRT
 #
 # obs: Enter a vector of pH, Acid Vol, temp, and cond
 #      Enter a scalar of sal
 #      Outputs a scalar for alkalinity
 
 
-K = 273
+K = 273.15
 
 def conts_G(vol, pot, t):
     r"""
