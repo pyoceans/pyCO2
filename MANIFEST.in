@@ -1,0 +1,5 @@
+include README.txt
+include LICENSE.txt
+include CHANGES.txt
+include co2sys/*.py
+include co2sys/test/*.py

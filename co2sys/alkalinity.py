@@ -8,14 +8,16 @@
 # e-mail:   ocefpaf@gmail
 # web:      http://ocefpaf.tiddlyspot.com/
 # created:  28-Jan-2012
-# modified: Mon 02 Jun 2014 09:19:00 PM BRT
+# modified: Fri 25 Jul 2014 09:17:57 AM BRT
 #
 # obs: Enter a vector of pH, Acid Vol, temp, and cond
 #      Enter a scalar of sal
 #      Outputs a scalar for alkalinity
 
+import numpy as np
 
 K = 273.15
+
 
 def conts_G(vol, pot, t):
     r"""
@@ -29,6 +31,7 @@ def conts_G(vol, pot, t):
     t : array_like
         in situ temperature [:math:`^\circ` C (ITS-90)]
     """
+
 
 # Using UNESCO 1983 (EOS 1980) polynomial.
 def d_smow(t):
@@ -119,7 +122,7 @@ def dens0(s, t):
 
     s, t = np.asanyarray(s), np.asanyarray(t)
 
-    T68 = T * 1.00024
+    T68 = t * 1.00024
 
     # UNESCO 1983 eqn(13) p17.
     b0 = 8.24493e-1
@@ -128,7 +131,7 @@ def dens0(s, t):
     b3 = -8.2467e-7
     b4 = 5.3875e-9
 
-    A = (b0 + (b1 + (b2 + ( b3 + b4 * T68) * T68) * T68) * T68)
+    A = (b0 + (b1 + (b2 + (b3 + b4 * T68) * T68) * T68) * T68)
 
     c0 = -5.72466e-3
     c1 = 1.0227e-4
